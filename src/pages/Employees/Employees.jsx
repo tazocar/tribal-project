@@ -25,11 +25,15 @@ function Employees() {
   const businessesState = useSelector(state => state.business);
   const employeesState = useSelector(state => state.employee);
 
+  const [companyName, setCompanyName] = useState('');
   const [employees, setEmployees] = useState([]);
 
   useEffect(() => {
     // If you didn't to this url by clicking on an element but directly typing url, redirect.
-    if (businessesState.business !== null) return getEmployees(businessesState.business.businessId);
+    if (businessesState.business !== null) {
+      setCompanyName(businessesState.business.name);
+      return getEmployees(businessesState.business.businessId);
+    }
     return navigate('/business');
   }, []);
 
@@ -76,7 +80,9 @@ function Employees() {
           <FormConfirm cancelSubmit={cancelSubmit} submit={confirmDeletionSubmit} />
         </Modal>
       )}
-      <MainTitle>{t('pages.employees.title')}</MainTitle>
+      <MainTitle>
+        {t('pages.employees.title')} {companyName}
+      </MainTitle>
       <EmployeeTableList employees={employees} createEmployee={setModalToCreateEmployee} />
     </>
   );
