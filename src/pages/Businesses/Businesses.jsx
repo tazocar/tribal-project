@@ -11,6 +11,7 @@ import BussinessesTableList from '../../components/BusinessTableList/BusinessTab
 import Modal from '../../components/Modal/Modal';
 import FormConfirm from '../../components/FormConfirm/FormConfirm';
 import FormBusiness from '../../components/FormBusiness/FormBusiness';
+import { deleteEmployeeAction, getEmployeesAction } from '../../redux/actions/employeeActions';
 
 function Businesses() {
   const { t } = useTranslation();
@@ -19,8 +20,11 @@ function Businesses() {
   const showModal = modalState => dispatch(showModalAction(modalState));
   const getBusinesses = () => dispatch(getBusinessesAction());
   const deleteBusiness = businessID => dispatch(deleteBusinessAction(businessID));
+  const getEmployees = businessID => dispatch(getEmployeesAction(businessID));
+  const deleteEmployee = (businessId, employeeId) => dispatch(deleteEmployeeAction(businessId, employeeId));
   const modalReducerState = useSelector(state => state.modal);
   const businessesState = useSelector(state => state.business);
+  const employeesState = useSelector(state => state.employee);
 
   const [businesses, setBusinesses] = useState([]);
 
@@ -47,9 +51,18 @@ function Businesses() {
     showModal(modalStateData);
   };
 
+  const deleteAsociatedEmployees = () => {
+    const businessId = businessesState.editID;
+    getEmployees(businessId);
+    employeesState.employees.map(employee => {
+      return deleteEmployee(businessId, employee.personId);
+    });
+  };
+
   const confirmDeletionSubmit = e => {
     e.preventDefault();
     const businessIdToDelete = businessesState.business.businessId;
+    deleteAsociatedEmployees();
     deleteBusiness(businessIdToDelete);
     dispatch(() => hideModal());
   };
