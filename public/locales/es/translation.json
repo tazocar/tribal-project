@@ -1,0 +1,72 @@
+{
+  "pages": {
+    "business": {
+      "title": "Compañías"
+    },
+    "employees": {
+      "title": "Empleados"
+    }
+  },
+  "components": {
+    "navBar": {
+      "labels": {
+        "businesses": "Compañías",
+        "payments": "Pagos",
+        "credits": "Créditos",
+        "notifications": "Notificaciones",
+        "users": "Usuarios"
+      },
+      "spanish": "Español",
+      "english": "Ingles"
+    },
+    "employeeTableList": {
+      "button": "Contratar Empleado"
+    },
+    "businessTableList": {
+      "button": "Crear Empresa"
+    },
+    "formBusiness": {
+      "titles": {
+        "create": "Crear nueva empresa",
+        "edit": "Editar Empresa"
+      },
+      "labels": {
+        "name": "Nombre"
+      },
+      "buttons": {
+        "edit": "Guardar cambios",
+        "create": "Agregar Compañía",
+        "cancel": "Cancelar"
+      },
+      "error": "Todos los campos son requeridos"
+    },
+    "formEmployee": {
+      "titles": {
+        "create": "Contratar nuevo empleado",
+        "edit": "Editar empleado"
+      },
+      "labels": {
+        "name": "Nombre",
+        "role": "Rol",
+        "email": "Email",
+        "phone": "Teléfono",
+        "joinDate": "Fecha de ingreso"
+      },
+      "buttons": {
+        "edit": "Guardar cambios",
+        "create": "Contratar empleado",
+        "cancel": "Cancelar"
+      },
+      "error": "Todos los campos son requeridos"
+    },
+    "formConfirm": {
+      "title": "Eliminar",
+      "paragraph": "Estás seguro/a de querer eliminar esto?",
+      "buttons": {
+        "confirm": "Elimínalo!",
+        "cancel": "Cancelar"
+      },
+      "error": "Todos los campos son requeridos"
+    }
+  }
+}
