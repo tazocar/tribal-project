@@ -21,7 +21,7 @@
 - [x] Add and Edit Business
 - [x] Add and Edit Employees
 
-[Demo Here](https://business-manager.netlify.app/business)
+[Demo Here](https://business-manager.netlify.app)
   
 ---
 ## 💻 Prerequisites
